@@ -24,9 +24,20 @@ public class _01_IntroToArrayLists {
 			System.out.println(s);
 		}
 		//5. Print only the even numbered elements in the list.
-		
+		for (int i = 0; i < str.size(); i++) {
+			if (i%2 == 0) {
+				System.out.println(str.get(i));
+			}
+		}
 		//6. Print all the Strings in reverse order.
-		
+		for (int i = str.size() -1; i >= 0; i--) {
+			System.out.println(str.get(i));
+		}
 		//7. Print only the Strings that have the letter 'e' in them.
+		for (int i = 0; i < str.size(); i++) {
+			if (str.get(i).contains("e")) {
+				System.out.println(str.get(i));
+			}
+		}
 	}
 }
