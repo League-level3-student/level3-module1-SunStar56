@@ -38,17 +38,15 @@ public class _04_RemovingStuffFromArrayLists {
 		for (int i = 0; i < stuffIFoundInTheYard.size(); i++) {
 			if (stuffIFoundInTheYard.get(i).type.equals("dirt")) {
 				stuffIFoundInTheYard.remove(i);
-				i-=1;
-				
+				i -= 1;
+
+			} else {
+				// stuffIFoundInTheYard.remove(i);
+
 			}
-			else {
-				//stuffIFoundInTheYard.remove(i);
-				
-			}
-			
+
 		}
-		
-		
+
 		System.out.println(stuffIFoundInTheYard.size()); // should be 2
 
 		ArrayList<Character> truth = new ArrayList<Character>();
@@ -85,13 +83,15 @@ public class _04_RemovingStuffFromArrayLists {
 		truth.add('#');
 		/* TODO 2: Remove the hash symbols and print out the truth. */
 		for (int i = 0; i < truth.size(); i++) {
-			//if () {
+			if (truth.get(i).charValue() == '#') {
 				truth.remove(i);
 				i -= 1;
-			//}
+				System.out.println(truth.get(i).charValue());
+			}
+
 		}
-		
+
 		System.out.println(truth);
-		
+
 	}
 }
