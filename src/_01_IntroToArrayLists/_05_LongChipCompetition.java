@@ -1,7 +1,6 @@
 package _01_IntroToArrayLists;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 public class _05_LongChipCompetition {
@@ -15,6 +14,7 @@ public class _05_LongChipCompetition {
 
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		lcc.initializeBeatles();
 		int highScore = 0;
 		String highestPerson = "";
 		for (Beatle b : lcc.theBeatles) {
@@ -24,15 +24,14 @@ public class _05_LongChipCompetition {
 					currentHigh = (int) c.getLength();
 				}
 			}
-				if (currentHigh > highScore) {
-					highScore = currentHigh;
-					highestPerson = b.getName();
-				}
+			if (currentHigh > highScore) {
+				highScore = currentHigh;
+				highestPerson = b.getName();
 			}
+		}
 		System.out.println(highestPerson);
 		System.out.println(highScore);
-		}
-		
+	}
 
 	private void initializeBeatles() {
 		Beatle george = new Beatle("George");
