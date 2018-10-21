@@ -7,19 +7,27 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 //Copyright The League of Amazing Programmers, 2015
 
 public class _06_IPodShuffle implements ActionListener {
-
+	JFrame frame;
+	
+	JButton button;
+	Song demo;
+	boolean shuffling;
+	ArrayList<Song> songList;
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
-		ArrayList<Song> songList = new ArrayList<Song>();
-		Song demo = new Song("demo.mp3");
+		songList = new ArrayList<Song>();
+		demo = new Song("demo.mp3");
 		songList.add(demo);
-		Random r = new Random();
-		r.nextInt(2);
+		shuffling = false;
 		createUI(songList);
+		
+		}
+		
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
 		 * iPod Shuffle that plays random music. * Create an ArrayList of Songs and a
@@ -28,26 +36,39 @@ public class _06_IPodShuffle implements ActionListener {
 		 * subsequent button clicks.
 		 */
 
-	}
+	
 
 	public static void main(String[] args) {
 		new _06_IPodShuffle();
-
+		
 	}
 
 	public void createUI(ArrayList songs) {
-		JFrame frame = new JFrame();
-		JButton button = new JButton("Surprise Me!");
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		button = new JButton("Surprise Me!");
 		frame.add(button);
 		frame.setVisible(true);
 		button.addActionListener(this);
 		frame.pack();
 
 	}
+	public void shuffleSongs(ArrayList<Song> songs) {
+		Random r = new Random();
+		int rand = r.nextInt(songs.size());
+		r.nextInt(2);
+		songs.get(rand).play();
+		System.out.println("boopmoop");
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == button) {
+			shuffleSongs(songList);
+			System.out.println("moop");
+		}
+		
 
 	}
 }
