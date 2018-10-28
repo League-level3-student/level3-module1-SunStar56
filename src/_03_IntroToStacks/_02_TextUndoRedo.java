@@ -1,6 +1,51 @@
 package _03_IntroToStacks;
 
-public class _02_TextUndoRedo {
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Stack;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class _02_TextUndoRedo implements KeyListener{
+	
+	public _02_TextUndoRedo() {
+		Stack<Character> chars = new Stack<Character>();
+		
+	}
+	
+	public static void main(String[] args) {
+		new _02_TextUndoRedo();
+	}
+	public void createUI(JFrame frame, JPanel panel, JLabel label){
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		label = new JLabel();
+		frame.add(label);
+		frame.setVisible(true);
+		label.addKeyListener(this);
+		frame.pack();
+
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		
+		
+		
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
 	/* 
 	 * Create a JFrame with a JPanel and a JLabel.
 	 * 
@@ -12,7 +57,4 @@ public class _02_TextUndoRedo {
 	 * Choose a key to be the Undo key. Make it so that when that key is pressed, the top Character is popped 
 	 * off the Stack and added back to the JLabel.
 	 * 
-	 * */
-	
-	
-}
+	 */
