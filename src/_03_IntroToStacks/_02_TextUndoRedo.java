@@ -9,40 +9,57 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class _02_TextUndoRedo implements KeyListener{
-	
-	public _02_TextUndoRedo() {
-		Stack<Character> chars = new Stack<Character>();
+		JFrame frame;
+		JPanel panel;
+		JLabel label;
+		Stack<Character> chars;
 		
+	public _02_TextUndoRedo() {
+		chars = new Stack<Character>();
+		createUI(chars);	
+	
 	}
 	
 	public static void main(String[] args) {
 		new _02_TextUndoRedo();
-	}
-	public void createUI(JFrame frame, JPanel panel, JLabel label){
+		
+		}
+	public void createUI(Stack<Character> chars){
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		label = new JLabel();
+		label = new JLabel("");
 		frame.add(label);
 		frame.setVisible(true);
-		label.addKeyListener(this);
+		frame.addKeyListener(this);
 		frame.pack();
 
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
+	
 		
 		
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {			
+			chars.pop();
+			label.setText(label.getText());
+			label.setText(label.getText() + "");
+			System.out.println("done");
+		}
+		else {
+			label.setText(label.getText() + e.getKeyChar() + "");
+			frame.pack();
+			Character c = e.getKeyChar();
+			chars.push(c);
+		}
 		
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 }
